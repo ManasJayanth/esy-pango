@@ -1,0 +1,30 @@
+{
+  "name": "esy-pango",
+  "version": "1.43.000",
+  "description": "Pango packaged for esy",
+  "esy": {
+    "build": [
+      "meson setup -Dgir=false --prefix #{self.install} #{self.target_dir}",
+      "ninja -C #{self.target_dir}"
+    ],
+    "install": [
+      "meson install -C #{self.target_dir}"
+    ],
+    "buildEnv": {
+      "PYTHONPATH": "#{meson.install / 'lib' / 'python3.7' / 'site-packages'}:$PYTHONPATH",
+      "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH"
+    },
+    "exportedEnv": {
+      "PKG_CONFIG_PATH": {
+        "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH}",
+        "scope": "global"
+      }
+    }
+  },
+  "dependencies": {
+    "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
+    "ninja": "prometheansacrifice/esy-ninja#7bf8855359092d4c172824766973fe0768846010",
+    "glib": "prometheansacrifice/esy-glib#7bfeb73a8d151eeff8ef1c9e928355d3f9b59c67",
+    "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e"
+  }
+}
