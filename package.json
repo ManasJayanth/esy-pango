@@ -12,7 +12,10 @@
     ],
     "buildEnv": {
       "PYTHONPATH": "#{meson.install / 'lib' / 'python3.7' / 'site-packages'}:$PYTHONPATH",
-      "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH"
+      "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH",
+      "PKG_CONFIG_PATH": "#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
+      "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'} -I#{esy-fontconfig.install / 'include'} -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} $CFLAGS",
+      "LDFLAGS": "-L#{esy-cairo.lib} -lcairo -L#{esy-fontconfig.lib} -lfontconfig -L#{esy-harfbuzz.lib} -lharfbuzz $LDFLAGS"
     },
     "exportedEnv": {
       "PKG_CONFIG_PATH": {
@@ -22,10 +25,17 @@
     }
   },
   "dependencies": {
-    "meson": "prometheansacrifice/esy-meson#73d7c243b3d6bd3c655de2a09ab07fc250b37ed1",
-    "ninja": "prometheansacrifice/esy-ninja#7bf8855359092d4c172824766973fe0768846010",
-    "glib": "prometheansacrifice/esy-glib#7bfeb73a8d151eeff8ef1c9e928355d3f9b59c67",
+    "meson": "prometheansacrifice/esy-meson#dce5534b0acd7a2b85b5cee78e933796204e0cce",
+    "ninja": "prometheansacrifice/esy-ninja#37fae9254002a02bb56c4b65b6fad54fcaae8bae",
+    "glib": "prometheansacrifice/esy-glib#b133b09d13178143e2ad916f7ee10ce88695be9d",
     "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e",
-    "fribidi": "prometheansacrifice/esy-fribidi#b9e5eb1da7057693742af75cf98a0db2cce083a8"
+    "esy-cairo": "prometheansacrifice/esy-cairo#084711716926b6b0e29d7bc21a5556f00fa63523",
+    "esy-freetype2": "prometheansacrifice/esy-freetype2#fc1496120a45f5e85640d2b72b41c6746efee442",
+    "esy-fribidi": "prometheansacrifice/esy-fribidi#b9e5eb1da7057693742af75cf98a0db2cce083a8",
+    "esy-fontconfig": "prometheansacrifice/esy-fontconfig#cc9e31aab7503b547c117f4d4e07c236d43190fd",
+    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#d51a5492dca7bffd0cfe2b6a0e332d437fb84dc2"
+  },
+  "resolutions": {
+    "esy-zlib": "esy-packages/esy-zlib#404929fd8b7ed83ed6a528d751840faff957b4b3"
   }
 }
