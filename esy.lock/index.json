@@ -1,5 +1,5 @@
 {
-  "checksum": "deca3afad6b8c496ad43d1e28a30969f",
+  "checksum": "c58812639cc7ae6b4b5a63c93de52664",
   "root": "esy-pango@link-dev:./package.json",
   "node": {
     "pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9": {
