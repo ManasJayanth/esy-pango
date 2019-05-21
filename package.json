@@ -13,8 +13,9 @@
     "buildEnv": {
       "PYTHONPATH": "#{meson.install / 'lib' / 'python3.7' / 'site-packages'}:$PYTHONPATH",
       "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH",
-      "PKG_CONFIG_PATH": "#{esy-fontconfig.lib / 'pkgconfig'}:#{glib.lib / 'pkgconfig'}:#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
-      "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'}  -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} -I#{esy-fontconfig.install / 'include'} -I#{esy-freetype2.install / 'include' / 'freetype2'} $CFLAGS"
+      "PKG_CONFIG_PATH": "/usr/lib/x86_64-linux-gnu/pkgconfig:#{esy-fontconfig.lib / 'pkgconfig'}:#{glib.lib / 'pkgconfig'}:#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
+      "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'}  -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} -I#{esy-fontconfig.install / 'include'} -I#{esy-freetype2.install / 'include' / 'freetype2'} $CFLAGS",
+      "LDFLAGS": "-L#{esy-cairo.lib} -lcairo $LDFLAGS"
     },
     "exportedEnv": {
       "PKG_CONFIG_PATH": {
@@ -37,6 +38,50 @@
     "esy-libffi": "esy-ocaml/libffi#599bc3567ecf839240977b6d9aaf0b80f983b5aa"
   },
   "resolutions": {
-    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#ebea69d3c3b72a3e7a716751b9fa11be701bafda"
+    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#ebea69d3c3b72a3e7a716751b9fa11be701bafda",
+    "esy-cairo": {
+      "source": "prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f",
+      "override": {
+        "buildEnv": {
+          "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH"
+        },
+        "dependencies": {
+          "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e"
+        }
+      }
+    },
+    "esy-fontconfig": {
+      "source": "prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f",
+      "override": {
+        "buildEnv": {
+          "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH"
+        },
+        "build": [
+          [
+            "chmod",
+            "755",
+            "./configure"
+          ],
+          "find ./ -exec touch -t 200905010101 {} +",
+          [
+            "bash",
+            "-c",
+            "env PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH ./configure --disable-dependency-tracking --prefix=#{self.install} #{os == 'windows' ? '--host x86_64-w64-mingw32' : ''}"
+          ],
+          [
+            "make",
+            "V=1"
+          ],
+          [
+            "make",
+            "install"
+          ]
+        ],
+        "dependencies": {
+          "yarn-pkg-config": "prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",
+          "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e"
+        }
+      }
+    }
   }
 }
