@@ -38,6 +38,6 @@
   },
   "resolutions": {
     "esy-zlib": "esy-packages/esy-zlib#404929fd8b7ed83ed6a528d751840faff957b4b3",
-    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#7f88993d2027bc67afcd7c35612aee870ffc0c99"
+    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#ebea69d3c3b72a3e7a716751b9fa11be701bafda"
   }
 }
