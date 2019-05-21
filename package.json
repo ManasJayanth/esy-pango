@@ -13,9 +13,8 @@
     "buildEnv": {
       "PYTHONPATH": "#{meson.install / 'lib' / 'python3.7' / 'site-packages'}:$PYTHONPATH",
       "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH",
-      "PKG_CONFIG_PATH": "#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
-      "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'} -I#{esy-fontconfig.install / 'include'} -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} $CFLAGS",
-      "LDFLAGS": "-L#{esy-cairo.lib} -lcairo -L#{esy-fontconfig.lib} -lfontconfig -L#{esy-harfbuzz.lib} -lharfbuzz $LDFLAGS"
+      "PKG_CONFIG_PATH": "#{esy-fontconfig.lib / 'pkgconfig'}:#{glib.lib / 'pkgconfig'}:#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
+      "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'}  -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} -I#{esy-fontconfig.install / 'include'} -I#{esy-freetype2.install / 'include' / 'freetype2'} $CFLAGS"
     },
     "exportedEnv": {
       "PKG_CONFIG_PATH": {
@@ -29,13 +28,16 @@
     "ninja": "prometheansacrifice/esy-ninja#37fae9254002a02bb56c4b65b6fad54fcaae8bae",
     "glib": "prometheansacrifice/esy-glib#b133b09d13178143e2ad916f7ee10ce88695be9d",
     "pcre": "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e",
-    "esy-cairo": "prometheansacrifice/esy-cairo#084711716926b6b0e29d7bc21a5556f00fa63523",
-    "esy-freetype2": "prometheansacrifice/esy-freetype2#fc1496120a45f5e85640d2b72b41c6746efee442",
+    "esy-cairo": "prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f",
+    "esy-freetype2": "prometheansacrifice/esy-freetype2#b7bfa03f77ad926ba03b2f923878fe3418e0273f",
     "esy-fribidi": "prometheansacrifice/esy-fribidi#b9e5eb1da7057693742af75cf98a0db2cce083a8",
-    "esy-fontconfig": "prometheansacrifice/esy-fontconfig#cc9e31aab7503b547c117f4d4e07c236d43190fd",
-    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#d51a5492dca7bffd0cfe2b6a0e332d437fb84dc2"
+    "esy-fontconfig": "prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f",
+    "esy-libpng": "esy-packages/esy-libpng#d846df4a8547b3299c7627773008bd97543d7048",
+    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#bf1f8c37d07186d74ccbf9d858bc0e19f2286086",
+    "esy-libffi": "esy-ocaml/libffi#599bc3567ecf839240977b6d9aaf0b80f983b5aa"
   },
   "resolutions": {
-    "esy-zlib": "esy-packages/esy-zlib#404929fd8b7ed83ed6a528d751840faff957b4b3"
+    "esy-zlib": "esy-packages/esy-zlib#404929fd8b7ed83ed6a528d751840faff957b4b3",
+    "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#7f88993d2027bc67afcd7c35612aee870ffc0c99"
   }
 }
