@@ -1,23 +1,7 @@
 {
-  "checksum": "354ca51b290eb3bce9205182ac6ab401",
+  "checksum": "d6c9c5d524417e660300a92bc04e4c44",
   "root": "esy-pango@link-dev:./package.json",
   "node": {
-    "yarn-pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9": {
-      "id":
-        "yarn-pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9",
-      "name": "yarn-pkg-config",
-      "version":
-        "github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",
-      "source": {
-        "type": "install",
-        "source": [
-          "github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
-      "devDependencies": []
-    },
     "pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9": {
       "id":
         "pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9",
@@ -229,8 +213,8 @@
         "esy-harfbuzz@github:prometheansacrifice/esy-harfbuzz#ebea69d3c3b72a3e7a716751b9fa11be701bafda@d41d8cd9",
         "esy-fribidi@github:prometheansacrifice/esy-fribidi#b9e5eb1da7057693742af75cf98a0db2cce083a8@d41d8cd9",
         "esy-freetype2@github:prometheansacrifice/esy-freetype2#b7bfa03f77ad926ba03b2f923878fe3418e0273f@d41d8cd9",
-        "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f@1db234a5",
-        "esy-cairo@github:prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f@e4441bfd"
+        "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e@d41d8cd9",
+        "esy-cairo@github:prometheansacrifice/esy-cairo#df8f457a3a7af122545fedef3329a7ec0ba82a75@d41d8cd9"
       ],
       "devDependencies": []
     },
@@ -364,42 +348,20 @@
       ],
       "devDependencies": []
     },
-    "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f@1db234a5": {
+    "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e@d41d8cd9": {
       "id":
-        "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f@1db234a5",
+        "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e@d41d8cd9",
       "name": "esy-fontconfig",
       "version":
-        "github:prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f",
+        "github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e",
       "source": {
         "type": "install",
         "source": [
-          "github:prometheansacrifice/esy-fontconfig#b173706a651684ec557cd68d6344a4392fa1809f"
+          "github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e"
         ]
       },
-      "overrides": [
-        {
-          "buildEnv": { "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH" },
-          "build": [
-            [ "chmod", "755", "./configure" ],
-            "find ./ -exec touch -t 200905010101 {} +",
-            [
-              "bash", "-c",
-              "env PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH ./configure --disable-dependency-tracking --prefix=#{self.install} #{os == 'windows' ? '--host x86_64-w64-mingw32' : ''}"
-            ],
-            [ "make", "V=1" ],
-            [ "make", "install" ]
-          ],
-          "dependencies": {
-            "yarn-pkg-config":
-              "prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed",
-            "pcre":
-              "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e"
-          }
-        }
-      ],
+      "overrides": [],
       "dependencies": [
-        "yarn-pkg-config@github:prometheansacrifice/yarn-pkg-config#cc5b4f913cccee781461b16d49b902c84727e7ed@d41d8cd9",
-        "pcre@github:esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e@d41d8cd9",
         "esy-zlib@github:esy-packages/esy-zlib#404929fd8b7ed83ed6a528d751840faff957b4b3@d41d8cd9",
         "esy-libpng@github:esy-packages/esy-libpng#d846df4a8547b3299c7627773008bd97543d7048@d41d8cd9",
         "esy-gperf@github:prometheansacrifice/esy-gperf#611c95170bd59aedb26adb500a08c97bd2112981@d41d8cd9",
@@ -425,32 +387,24 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "esy-cairo@github:prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f@e4441bfd": {
+    "esy-cairo@github:prometheansacrifice/esy-cairo#df8f457a3a7af122545fedef3329a7ec0ba82a75@d41d8cd9": {
       "id":
-        "esy-cairo@github:prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f@e4441bfd",
+        "esy-cairo@github:prometheansacrifice/esy-cairo#df8f457a3a7af122545fedef3329a7ec0ba82a75@d41d8cd9",
       "name": "esy-cairo",
       "version":
-        "github:prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f",
+        "github:prometheansacrifice/esy-cairo#df8f457a3a7af122545fedef3329a7ec0ba82a75",
       "source": {
         "type": "install",
         "source": [
-          "github:prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f"
+          "github:prometheansacrifice/esy-cairo#df8f457a3a7af122545fedef3329a7ec0ba82a75"
         ]
       },
-      "overrides": [
-        {
-          "buildEnv": { "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH" },
-          "dependencies": {
-            "pcre":
-              "esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e"
-          }
-        }
-      ],
+      "overrides": [],
       "dependencies": [
-        "pcre@github:esy-packages/esy-pcre#c5076c8facbebaf5f5718c0e270418fd218add7e@d41d8cd9",
         "esy-pixman@github:esy-packages/esy-pixman#c23d29008247aeed69e20df4efc830906d553ff5@d41d8cd9",
         "esy-libpng@github:esy-packages/esy-libpng#d846df4a8547b3299c7627773008bd97543d7048@d41d8cd9",
         "esy-freetype2@github:prometheansacrifice/esy-freetype2#b7bfa03f77ad926ba03b2f923878fe3418e0273f@d41d8cd9",
+        "esy-fontconfig@github:prometheansacrifice/esy-fontconfig#dedb8b78bf362de854cb090c326eeca26f9e1f2e@d41d8cd9",
         "esy-bzip2@github:esy-packages/esy-bzip2#048f314334ae2e63b24082a7e4cfca4985b04028@d41d8cd9"
       ],
       "devDependencies": []
