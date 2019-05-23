@@ -40,7 +40,7 @@
   "resolutions": {
     "esy-harfbuzz": "prometheansacrifice/esy-harfbuzz#ebea69d3c3b72a3e7a716751b9fa11be701bafda",
     "esy-cairo": {
-      "source": "prometheansacrifice/esy-cairo#970ee6c109cc155e568e4bb23091cc93a4a5425f",
+      "source": "prometheansacrifice/esy-cairo#6db0a669fa619533ffa6fec4f461beecad84cb63",
       "override": {
         "buildEnv": {
           "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH"
