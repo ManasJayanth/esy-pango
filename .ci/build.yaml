@@ -10,6 +10,9 @@ jobs:
   - ${{ if eq(parameters.host, 'macOS') }}:
     - script: brew install pkg-config
       displayName: 'Install pkg-config (for testing)'
+  - ${{ if eq(parameters.host, 'Linux') }}:
+    - script: sudo apt install uuid-dev
+      displayName: 'Install uuid-dev'
   - ${{ if eq(parameters.host, 'Windows') }}:
     - script: 'npm install -g esy@latest --unsafe-perm'
       displayName: 'Install esy'
