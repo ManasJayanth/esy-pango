@@ -4,7 +4,7 @@
   "description": "Pango packaged for esy",
   "esy": {
     "build": [
-      "meson setup -Dgir=false --prefix #{self.install} --libdir #{self.install} #{self.target_dir}",
+      "meson setup -Dgir=false --prefix #{self.install} --libdir #{self.lib} #{self.target_dir}",
       "ninja -C #{self.target_dir}"
     ],
     "install": [
