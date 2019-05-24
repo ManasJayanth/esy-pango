@@ -13,7 +13,7 @@
     "buildEnv": {
       "PYTHONPATH": "#{meson.install / 'lib' / 'python3.7' / 'site-packages'}:$PYTHONPATH",
       "LD_LIBRARY_PATH": "#{pcre.lib}:$LD_LIBRARY_PATH",
-      "PKG_CONFIG_PATH": "/usr/lib/x86_64-linux-gnu/pkgconfig:#{esy-fontconfig.lib / 'pkgconfig'}:#{glib.lib / 'pkgconfig'}:#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH",
+      "PKG_CONFIG_PATH": "#{esy-fontconfig.lib / 'pkgconfig'}:#{glib.lib / 'pkgconfig'}:#{esy-freetype2.lib / 'pkgconfig'}:#{esy-harfbuzz.lib / 'pkgconfig'}:$PKG_CONFIG_PATH:/usr/lib/x86_64-linux-gnu/pkgconfig",
       "CFLAGS": "-I#{esy-cairo.install / 'include' / 'cairo'}  -I#{esy-harfbuzz.install / 'include' / 'harfbuzz'} -I#{esy-fontconfig.install / 'include'} -I#{esy-freetype2.install / 'include' / 'freetype2'} $CFLAGS",
       "LDFLAGS": "-L#{esy-cairo.lib} -lcairo $LDFLAGS"
     },
